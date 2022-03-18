@@ -15,108 +15,108 @@ var variable = require(module);
  //HERE ARE SOME EXAMPLES
 
 //Variables
-const constttt = 10; //constant
+pakka ye hai constttt = 10; //constant
 //or
-let a = 10; //variable
+bhai ye hai a = 10; //variable
 //or
-let c = "yo"; //variable
+sun bhai c = "yo"; //variable
 //or
-var p = "I am global"; //var is var
+vella p = "I am global"; //vella is var
 
 
 //Data types
-let k = true;
-let b = false;
-let n = null; //null
-let d = undefined; //undefined
-let t =  undefined; //undefined
+sun bhai k = sahi;
+sun bhai b = galat;
+sun bhai n = nalla; //null
+sun bhai d = pata nai bhai; //undefined
+sun bhai t = kuch nahi; //undefined
 
 //Console log
-log(k);
+bol bhai(k);
 
 //Condition
-let gullu = 10;
-if (gullu < 25) {
-log("gullu is less than 25");
+bhai ye hai gullu = 10;
+agar bhai (gullu < 25) {
+bol bhai ("gullu is less than 25");
 } 
-else if(gullu == 100){
- log("gullu tu bada bhai hai");
+ya fir bhai(gullu == 100){
+ bol bhai ("gullu tu bada bhai hai");
 
 }
-else {
-log("gullu is greater than or equal to 25");
+warna bhai {
+bol bhai ("gullu is greater than or equal to 25");
 }
 
 //Loop
 
-let looper = 0;
-while (looper < 10) {
+bhai ye hai looper = 0;
+jab tak bhai (looper < 10) {
 looper += 1;
-if (looper == 5) {
-log("andar se bol bhai ", looper);
-continue;
+agar bhai (looper == 5) {
+bol bhai ("andar se bol bhai ", looper);
+agla dekh bhai;
 }
-if (looper == 6) {
-break;
+agar bhai (looper == 6) {
+bas kar bhai;
 }
-log(looper);
+bol bhai (looper);
 }
-log("done");
+bol bhai ("done");
 
 //Require a module
-requirejs('fs','filesystem');
+dena bhai('fs','filesystem');
 
 //typeof
-log(typeof 'string');
+bol bhai(kaisa hai bhai 'string');
 
 //Switch case
-switch (a) {
- case "morning":
+bhai dekh (a) {
+ agar "morning":
  drink = "Tea";
- break;
- case "evening":
+ bas kar bhai;
+ agar "evening":
  drink = "Shake";
- break;
- default:
+ bas kar bhai;
+ nhi to:
  drink="Water";
  }
 
 
 //Function 
-function suna(){
- log('kaisa hai sab kuch');
+bhai ek kaam kar suna(){
+ bol bhai('kaisa hai sab kuch');
 }
 
- suna(); //function call
+ye kar bhai suna(); //function call
 
 
 //Set time out
-function wait(){
- log(' ');
+bhai ek kaam kar wait(){
+ bol bhai(' ');
 
- log('ye der se aya na, kyunki time out hai');
+ bol bhai('ye der se aya na, kyunki time out hai');
 }
- setTimeout(wait, 5500);
+bhai thoda ruk(wait, 5500);
 
 
 
 //Array
-log( [1,2,3])
+bol bhai(array bhai [1,2,3])
 
 
 //Take user input
 
-async function age(){
- let age = await input.text('what is your age')
- if(age<30){
- log('aap to young ho bhai')
- } else {
- log('age is just a number bhai')
+bata bhai age(){
+ sun bhai age = bhai puch('what is your age')
+ agar bhai(age<30){
+ bol bhai('aap to young ho bhai')
+ } warna bhai {
+ bol bhai('age is just a number bhai')
  }
 }
 
- age();
+ye kar bhai age();
 
 
 //return
-return(100);
+nikal bhai(100);

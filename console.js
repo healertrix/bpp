@@ -4,16 +4,17 @@
 
 var fs = require('fs');
 var input = require('input');
-
+const { interpret } = require("./devutilities");
 // console.log(process.argv);
 let loc = process.argv[2];
-let kk = fs.readFileSync(loc,
+let codeRead = fs.readFileSync(loc,
             {encoding:'utf8', flag:'r'});
  
 // Display the file data
 // console.log(kk);
 //required string
- kk = `var input = require('input');
+  codeRead =
+    `var input = require('input');
 function requirejs (module,variable) {
 var variable = require(module);
 }
@@ -27,63 +28,63 @@ var variable = require(module);
  }
 
  }
- `+ kk;
+ ` + codeRead;
 
 //Interpretor
 //Cleaning string
- kk = kk.replace(/ +(?= )/g,'');
+ codeRead = codeRead.replace(/ +(?= )/g, "");
 
 
 
-function interpret (bhailang,js) {
-kk = kk.split(bhailang).join(js);
-// console.log(kk);
-}
+// function interpret (bhailang,js) {
+// kk = kk.split(bhailang).join(js);
+// // console.log(kk);
+// }
 //Bhai lang Interpretor
-interpret("bhai ye hai","let");
-interpret("sun bhai","let");
+interpret(codeRead, "bhai ye hai", "let");
+interpret(codeRead, "sun bhai", "let");
 
-interpret("nalla",null);
-interpret("sahi",true);
-interpret("galat",false);
-interpret("bol bhai(","log(");
-interpret("bol bhai (","log(");
+interpret(codeRead, "nalla",null);
+interpret(codeRead, "sahi",true);
+interpret(codeRead, "galat",false);
+interpret(codeRead, "bol bhai(","log(");
+interpret(codeRead, "bol bhai (","log(");
 
-interpret("agar bhai",'if');
-interpret("warna bhai",'else');
+interpret(codeRead,"agar bhai",'if');
+interpret(codeRead,"warna bhai",'else');
 
-interpret("jab tak bhai",'while');
+interpret(codeRead,"jab tak bhai",'while');
 
-interpret("agla dekh bhai","continue");
-interpret("bas kar bhai","break");
-interpret("dena bhai(","requirejs(");
-interpret("dena bhai (","requirejs(");
+interpret(codeRead,"agla dekh bhai","continue");
+interpret(codeRead,"bas kar bhai","break");
+interpret(codeRead,"dena bhai(","requirejs(");
+interpret(codeRead, "dena bhai (", "requirejs(");
 
 
 //Input from cli
-interpret("bata bhai",'async function');
-interpret("bhai puch",'await input.text');
-interpret("bhai tick",'await input.checkboxes');
+interpret(codeRead,"bata bhai",'async function');
+interpret(codeRead,"bhai puch",'await input.text');
+interpret(codeRead,"bhai tick",'await input.checkboxes');
 
 //
 
 
 //Try catch
-interpret("try kar bhai",'try');
-interpret("pakad bhai",'catch');
-interpret("sab theek hai bhai",'finally');
-interpret("array bhai",'');
+interpret(codeRead,"try kar bhai",'try');
+interpret(codeRead,"pakad bhai",'catch');
+interpret(codeRead,"sab theek hai bhai",'finally');
+interpret(codeRead,"array bhai",'');
 
 
-interpret("pata nai bhai",'undefined');
-interpret("ya fir bhai","else if");
-interpret("nikal bhai","return");
-interpret("pakka ye hai","const");
-interpret("bhai ek kaam kar","function");
-interpret("ye kar bhai","");
+interpret(codeRead,"pata nai bhai",'undefined');
+interpret(codeRead,"ya fir bhai","else if");
+interpret(codeRead,"nikal bhai","return");
+interpret(codeRead,"pakka ye hai","const");
+interpret(codeRead,"bhai ek kaam kar","function");
+interpret(codeRead,"ye kar bhai","");
 
-interpret("bhai thoda ruk"," setTimeout");
-interpret("kuch nahi"," undefined");
+interpret(codeRead,"bhai thoda ruk"," setTimeout");
+interpret(codeRead,"kuch nahi"," undefined");
 
 //
 
@@ -93,17 +94,16 @@ interpret("kuch nahi"," undefined");
 
 
 // console.log(kk);
-interpret("bhai dekh","switch");
-interpret("agar","case");
-interpret("nhi to","default");
-interpret("kaisa hai bhai","typeof");
-interpret("naya bana bhai","new");
-interpret("chal bhag bhai","delete");
-interpret("vella","var");
+interpret(codeRead,"bhai dekh","switch");
+interpret(codeRead,"agar","case");
+interpret(codeRead,"nhi to","default");
+interpret(codeRead,"kaisa hai bhai","typeof");
+interpret(codeRead,"naya bana bhai","new");
+interpret(codeRead,"chal bhag bhai","delete");
+interpret(codeRead,"vella","var");
 
-interpret("hi bhai","");
-interpret("bye bhai","");
-
+interpret(codeRead,"hi bhai","");
+interpret(codeRead,"bye bhai","");
 
 // console.log(kk);
 
@@ -112,7 +112,7 @@ interpret("bye bhai","");
 //
 
 // writeFile function with filename, content and callback function
-fs.writeFile('newfile.js', kk, function (err) {
+fs.writeFile('newfile.js', codeRead, function (err) {
   if (err) throw err;
   // console.log('File is created successfully.');
   require('child_process').fork('newfile.js'); //change the path depending on where the file is.
